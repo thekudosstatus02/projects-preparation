@@ -1,0 +1,31 @@
+As my other friends answered , it will be completely about what you did ,
+your role and your milestones you faced while finishing it.
+
+In my personal experience , Since i played the role of team leader I was asked :-
+
+How did I assign the work to my team members?
+
+On what basis did i divide the work and assigned it to them.
+
+We were using few new technologies in our project , so were asked to explain
+in what way did we use those new features in those technologies.
+
+And of course , the issues faced while doing the project and ways we used to overcome it.
+
+Software model used in our project. ( i.e waterfall model , spiral model etc …)
+
+Warnings and errors we got while compiling the code , and how we got rid of the warnings.
+
+Also asked the concepts used in our project.
+
+And Of course , he asked us to explain the code . Not the whole of it , but code used for
+redirection and connection to database etc..
+
+And for the UI part of the project we used HTML5 , so asked the differences between
+HTML and HTML5 which was not answered.
+
+And finally , the duration we took to complete the backend code , Front end code , documenting reports etc.
+
+Different use cases , test cases used.
+
+So think , you can expect similar type of questions while presenting your projects to the interviewer.
