@@ -1,2 +1,3 @@
 # projects-preparation
 projects preparation for placements...
+it will include core subjects notes and Q/A.
