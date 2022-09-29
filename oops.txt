@@ -1,0 +1,211 @@
+= > Pointers: A pointer is a variable that holds memory address of another variable.
+                        A pointer needs to be de referenced with * operator to access the memory location it points to.
+= > References: A Reference can be called as a constant pointer that becomes de referenced implicitly. 
+	        When we access the reference it means we are accessing the storage.
+????? Why do we need reference variables if we have pointers?
+       In Pointers to access the value of the actual variable,
+          we need to explicitly dereference the pointer variable by using ‘value at address’ dereferencing operator(*).
+       In References to access the value of the actual variable,
+          we do not need to explicitly dereference the reference variable, they get de-referenced automatically.
+= > Refernce variables are treated as constant pointers.  
+
+///////////////      ROLE OF PRIVATE MEMBERS IN INHERITANCE      /////////////// 
+
+#include<iostream>
+using namespace std;
+
+class Base{
+      //  If this is made private then we cannot access variable a in Child because we cannnot inherit it private members
+ of Base class but of protected we can inside the body of Child Class.
+      //  The private members of Base class can be accessed only using the public functions of Base class.
+    private : 
+        int a;
+    public :
+        void set_val(int x){
+            a = x;
+        }
+        int show_val(){
+            return a;
+        }
+};
+
+class Child : public Base{
+    private : 
+        int p;
+    public :
+        void set_data(int x, int y){
+            p = x;
+            set_val(y);
+        }
+        void show_data(){
+            cout << "child class variable : " << p << endl;
+            cout << "parent class variable : " << show_val() << endl;
+        }
+};
+
+
+int main(){
+    
+    Child obj;
+    obj.set_data(10, 20);
+    obj.show_data();
+    
+    return 0;
+}
+
+
+
+///////////////      ROLE OF PROTECTED MEMBERS IN INHERITANCE      /////////////// 
+
+
+#include<iostream>
+using namespace std;
+
+class Base{
+     //  If this is made private then we cannot access variable a in Child because we cannnot inherit it private
+           members of Base class but of protected we can inside the body of Child Class.
+     //  The private members of Base class can be accessed only using the public functions of Base class.
+         protected : 
+         int a;
+        public :
+        void set_val(int x){
+            a = x;
+        }
+        int show_val(){
+            return a;
+        }
+};
+
+class Child : public Base{
+    private : 
+        int p;
+    public :
+        void set_data(int x, int y){
+            p = x;
+            a = y;
+        }
+        void show_data(){
+            cout << "child class variable : " << p << endl;
+            cout << "parent class variable : " << a << endl;
+        }
+};
+
+
+int main(){
+    
+    Child obj;
+    obj.set_data(10, 20);
+    obj.show_data();
+    
+    return 0;
+}
+
+
+
+
+////////////////      FRIEND FUNCTION      //////////////////
+
+#include <iostream>
+using namespace std;
+
+class B;
+class A{
+    private : 
+    int a;
+    void friend f1(A, B);
+    public : 
+    A(int x){
+      a = x;  
+    } 
+};
+
+class B{
+    private : 
+    int b;
+    void friend f1(A, B);
+    public : 
+    B(int x){
+      b = x;  
+    } 
+};
+
+void f1(A oA, B oB){
+    cout << oA.a + oB.b;
+}
+
+int main() {
+    // Write C++ code here
+    A oA(10);
+    B oB(30);
+    f1(oA, oB);
+    return 0;
+}
+
+
+///////////     TO MAKE A CONSTRUCTOR PRIVATE    ////////////
+
+#include <iostream>
+using namespace std;
+  
+// class A
+class A{
+private:
+    A(){
+       cout << "constructor of A\n";
+    }
+    friend class B;
+};
+  
+// class B, friend of class A
+class B{
+public:
+    B(){
+        A a1;
+        cout << "constructor of B\n";
+    }
+};
+  
+// Driver program
+int main(){
+    B b1;
+    return 0;
+}
+
+
+///////////   THE OPERATOR OVERLOADING   /////////////////
+
+#include <iostream>
+using namespace std;
+
+class A{
+    private:
+    int a;
+    public : 
+    A(int x){
+        a = x;
+    }
+    A() {}
+    A operator+(A ob){
+        A obj;
+        obj.a = a + ob.a;
+        return obj;
+    }
+    void show_data(){
+        cout << a << endl;
+    }
+};
+
+
+
+
+int main() {
+    // Write C++ code here
+    A ob1(10), ob2(30);
+    A ob = ob1 + ob2;
+    ob.show_data();
+    
+    return 0;
+}
+
+
+
